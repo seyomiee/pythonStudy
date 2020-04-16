@@ -8,6 +8,15 @@ def add_to_dict(dic,key="none",value="none"):
   else:
     dic[key]= value
     print(f"{key} has been added.")
+# if문
+# if ~ :
+# elif ~ :
+# else:
+#   if ~:
+#   else:
+# 이렇게도 됨,,else문 내에 if문 
+
+
 '''
 add_to_dict("hello", "kimchi"):
 you need to send a dictionary. you sent:<class 'str'>
