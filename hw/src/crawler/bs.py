@@ -74,6 +74,16 @@ def ask():
     print("That wasn't a number.")
     ask()
 
+def c_result():
+  print(f"How many {answers[0].get('code')} do you want to convert to {answers[1].get('code')}?")
+  try:
+    amount=int(input())
+    money=convert_currency(amount)
+    r=format_currency(money, answers[1].get('code'))
+    print(f"{answers[0].get('code')} {amount} is {r}")
+  except ValueError:
+    print("that wasn't number.")
+    c_result()
 
 def convert_currency(amount):
   one= answers[0].get('code')
