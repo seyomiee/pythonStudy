@@ -73,7 +73,16 @@ def ask():
   except ValueError:
     print("That wasn't a number.")
     ask()
-    
+
+
+def convert_currency(amount):
+  one= answers[0].get('code')
+  two= answers[1].get('code')
+  c_convert = requests.get(c_url + f"{one}-to-{two}-rate?amount={amount}")
+  soup = BeautifulSoup(c_convert.text, "html.parser")
+  get_currency = soup.find("input", {"id": "cc-amount-to"})
+  result= get_currency.get("value")
+  return result
 
 def main():
   for index, country in enumerate(countries):
