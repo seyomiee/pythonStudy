@@ -18,5 +18,19 @@ def make_detail_url(id):
 db = {}
 app = Flask("DayNine")
 
+@app.route("/")
+def home():
+  order_by = request.args.get("order_by")
+  if order_by == 'new':
+      get_request = requests.get(new)
+      sts = "new"
+  else:
+      get_request = requests.get(popular)
+      sts = "popular"
+  json = get_request.json()
+  hits= json['hits']
+  db[sts]= hits
+
+  return render_template("index.html", hits=hits, sts=sts)
 
 app.run(host="0.0.0.0")
