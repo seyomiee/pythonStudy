@@ -30,6 +30,33 @@ def read():
   posts.sort(key=lambda post: post['votes'], reverse=True)
   return render_template("read.html", selected=selected, posts=posts)
 
+'''
+@app.route('/read')
+def read():
+  for subreddit in subreddits:
+    reddits=[]
+    word= request.args.get(subreddit)
+    if word:
+      this=subreddit
+      r =requests.get(f'https://www.reddit.com/r/{subreddit}/top/?t=month',headers=headers)
+      soup= BeautifulSoup(r.text,"html.parser")
+      subs =soup.find_all('div',{'class':'_1oQyIsiPHYt6nx7VOmd1sz'})
+      for sub in subs:
+        votes = sub.find("div", {"class":"_1rZYMD_4xY3gRcSS3p8ODO"})
+        if votes:
+          votes = votes.string
+        title = sub.find("h3", {"class":"_eYtD2XCVieq6emjKBH3m"})
+        if title:
+          title = title.string
+        link = sub.find("a", {"class":"SQnoC3ObvgnGjWt90zD9Z _2INHSNB8V5eaWp4P0rY_mE"})
+        if link:
+          link = link['href']
+        if votes and title and link:
+          reddits.append({'votes':int(votes), 'title':title, 'link':link, 'subreddit':subreddit})
+      reddits.sort(key=lambda item: item['votes'], reverse=True)
+      return render_template('read.html', reddits=reddits,this=this)
+'''
+
 @app.route("/add", methods=['post'])
 def add():
   if request.method:
