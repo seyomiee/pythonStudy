@@ -1,15 +1,35 @@
 <!DOCTYPE html>
 <html>
   <head>
-     <title>seyomi</title>
+     <title> | hello </title>
   </head>
 
   <body>
     <header>
-      <h1>ghkrdls</h1>
+      <h1>test</h1>
 	  </header>
+    
     <main>
-      <h5>hello</h5>
+      <form action="/result">
+        <h3> select </h3>
+        <ul>
+        <div>
+            {% for item in gender %}
+              <li>
+                <input type="checkbox" name="{{item}}"/> <label for="{{item}}">
+            {{item}} </li>
+            {% endfor %}
+        </div>
+
+          <div>
+            {% for item in age %}
+              <li>
+                <input type="checkbox" name="{{item}}"/> <label for="{{item}}">
+            {{item}} </li>
+            {% endfor %}
+          </div>
+          </ul>
+          <button type='submit'> submit</button>
     </main>
   </body>
 </html>
