@@ -18,11 +18,14 @@ def rank():
   num_page=[]
   for a in pages:
     num_page.append(a.string)
+    #page 수 만큼 for문,,
+  for i,index in enumerate(num_page[:-2]):
+    print(i, index)
 
 rank()
 
 app = Flask('rankings')
-
+'''
 @app.route('/')
 def home():
   return render_template('home.html')
@@ -36,5 +39,5 @@ def result():
     #if g:
     
   return render_template('result.html',g=g)
-
+'''
 app.run(host="0.0.0.0", debug=True)
