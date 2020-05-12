@@ -52,7 +52,6 @@ def rank():
       #search_ranking(ranking_after)
 
 
-
   
 
 
