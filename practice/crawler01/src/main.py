@@ -5,6 +5,14 @@ from selenium.webdriver.common.by import By
 
 url="https://www.youtube.com/channel/UCYaBl0gtXV_3sHW4bQjq0hA/videos"
 
+
+'''
+div items << div details << a video-title, href
+dib container<< div content << a string  //tag
+div contents << span string
+
+'''
+
 driver = webdriver.Chrome()
 driver.get(url)
 
